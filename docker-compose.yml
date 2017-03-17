@@ -1,0 +1,15 @@
+version: '2'
+services:
+
+## Applications Code Container #############################
+  applications:
+    image: tianon/true
+    volumes:
+      - ../:/var/www
+### Compass Container ###########################
+  compass:
+    build:
+      context: ./containers/compass
+    volumes_from:
+      - applications
+    tty: true
